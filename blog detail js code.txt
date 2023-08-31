@@ -1,0 +1,124 @@
+<div data-component-customhtml="" data-comp-title="Custom HTML" data-htmlcomponent-type="html/customhtml" class="dropzone ui-droppable" style="min-height: 50px;background: #00000059;"><script>
+    var blogPageUrlr = window.location.href;
+    const app_name_general = "__APP_SLUG__";
+
+    if (app_name_general) {
+        const data = {
+            app_u_app_name: app_name_general,
+            page: blogPageUrlr 
+        };
+
+        const apiUrl = "https://n8n.owlapplicationbuilder.com/webhook/blog-counter";
+
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(data)
+        };
+
+        fetch(apiUrl, options)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    } else {
+        console.log("Cookie 'app_u_app_name' not found.");
+    }
+</script>
+</div>
+<div data-component-customhtml="" data-comp-title="Custom HTML" data-htmlcomponent-type="html/customhtml" class="dropzone ui-droppable" style="min-height: 50px;"><script>
+    document.addEventListener("DOMContentLoaded", function () {
+     
+        var shareIcons = document.querySelectorAll(".link.draggable");
+        shareIcons.forEach(function (shareIcon) {
+            shareIcon.addEventListener("click", function (event) {
+                event.preventDefault();
+                
+                var shareUrl = shareIcon.getAttribute("href");
+                
+                shareAndCount(shareUrl);
+            });
+        });
+    });
+
+    function shareAndCount(shareUrl) {
+        var blogPageUrlForVisitor = window.location.href;
+        const app_name_generalForVisitor = "__APP_SLUG__";
+
+        if (app_name_generalForVisitor) {
+            const data = {
+                app_u_app_name: app_name_generalForVisitor,
+                page: blogPageUrlForVisitor
+            };
+
+            const apiUrlForVisitor = "https://n8n.owlapplicationbuilder.com/webhook/visitor-counter";
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(data)
+            };
+
+            fetch(apiUrlForVisitor, options)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Visitor Counter Response:', data);
+                    window.open(shareUrl, "_blank");
+                })
+                .catch(error => {
+                    console.error('Visitor Counter Error:', error);
+                });
+        } else {
+            console.log("App name not available.");
+            window.open(shareUrl, "_blank");
+        }
+    }
+</script>
+</div>
+<div data-component-customhtml="" data-comp-title="Custom HTML" data-htmlcomponent-type="html/customhtml" class="dropzone ui-droppable" style="min-height: 50px;"><script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var currentUrl = window.location.href;
+        
+        var facebookShareButton = document.getElementById("facebookShareButton");
+        facebookShareButton.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(currentUrl);
+        
+        var twitterShareButton = document.getElementById("twitterShareButton");
+        twitterShareButton.href = "https://twitter.com/share?url=" + encodeURIComponent(currentUrl);
+        
+        var pinterestShareButton = document.getElementById("pinterestShareButton");
+        pinterestShareButton.href = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(currentUrl);
+       
+    });
+
+    function shareAndCount(shareUrl) {
+        var blogPageUrlForVisitor = window.location.href;
+        const app_name_generalForVisitor = "__APP_SLUG__";
+
+        if (app_name_generalForVisitor) {
+            const data = {
+                app_u_app_name: app_name_generalForVisitor,
+                page: blogPageUrlForVisitor
+            };
+
+            const apiUrlForVisitor = "https://n8n.owlapplicationbuilder.com/webhook-test/visitor-counter";
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(data)
+            };
+
+            fetch(apiUrlForVisitor, options)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Visitor Counter Response:', data);
+                    window.open(shareUrl, "_blank");
+                })
+                .catch(error => {
+                    console.error('Visitor Counter Error:', error);
+                });
+        } else {
+            console.log("App name not available.");
+            window.open(shareUrl, "_blank");
+        }
+    }
+</script>
+</div>

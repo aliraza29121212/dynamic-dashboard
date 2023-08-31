@@ -1,0 +1,255 @@
+ const fetchAPI = async () => {
+      try {
+        // Function to get the value of a cookie by name
+        function getCookieValue(name) {
+          const cookies = document.cookie.split("; ");
+          for (const cookie of cookies) {
+            const [cookieName, cookieValue] = cookie.split("=");
+            if (cookieName === name) {
+              return decodeURIComponent(cookieValue);
+            }
+          }
+          return null;
+        }
+
+        const app_Name = getCookieValue("app_u_app_name");
+        const apiUrl = `https://owlapplicationbuilder.com/api/entities/${app_Name}/blog/get_all_en?page=1&page_size=15`;
+
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const blogs = data.data;
+        const categorySelect = document.querySelector('.category-select');
+        const blogContainer = document.querySelector('.blog-container');
+
+        // Generate options and add them to the select element
+        const categories = [...new Set(blogs.map(blog => blog.blog_category))];
+        const categoriesOptions = [...categories.map(category => `<option>${category}</option>`)].join('');
+        categorySelect.innerHTML = categoriesOptions;
+
+        const websiteurl = `https://owlapplicationbuilder.com/appsbuilder/${app_Name}/objectsbuilder/system/api/settings/fetch`;
+
+        // Fetch data from the API
+        fetch(websiteurl)
+          .then(response => response.json())
+          .then(data => {
+            const getdata = data.data;
+            const viewUrl = getdata.view_url;
+
+            const displayFilteredBlogs = (selectedCategory) => {
+              const filteredBlogs = blogs.filter(blog => blog.blog_category === selectedCategory);
+
+              const blogHTML = filteredBlogs.map((blog, index) => `
+                <div class="d-flex justify-content-between align-items-center py-2 blog-list">
+                  <div class="d-flex align-items-center">
+                    <p class="blog-title mr-2">${index + 1}. ${blog.title}</p>
+                    <a href="${viewUrl}/blog/${blog.slug}" target="_blank" class="">
+ <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M11.75 12.25L18 6M18 6H13.8333M18 6V10.1667M18 15.1667V19.3333C18 19.7754 17.8244 20.1993 17.5118 20.5118C17.1993 20.8244 16.7754 21 16.3333 21H4.66667C4.22464 21 3.80072 20.8244 3.48816 20.5118C3.17559 20.1993 3 19.7754 3 19.3333V7.66667C3 7.22464 3.17559 6.80072 3.48816 6.48816C3.80072 6.17559 4.22464 6 4.66667 6H8.83333" stroke="#2B3674" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+                    </a>
+                  </div>
+                  <div class="blog-views ml-1">${blog.counter !== undefined && blog.counter !== null ? blog.counter : 0}</div>
+                </div>
+              `).join('');
+
+              blogContainer.innerHTML = blogHTML;
+            };
+
+            // Select the first category from the API response as the default category
+            const defaultCategory = categories[0];
+
+            // Set the selected category programmatically
+            categorySelect.value = defaultCategory;
+
+            // Display blogs for the default category
+            displayFilteredBlogs(defaultCategory);
+
+            // Add event listener to the category select
+            categorySelect.addEventListener('change', () => {
+              const selectedCategory = categorySelect.value;
+              displayFilteredBlogs(selectedCategory);
+            });
+          })
+          .catch(error => {
+            console.error('Error fetching view URL:', error);
+          });
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
+    };
+
+    fetchAPI();
+
+// Total Visitor on blog 
+
+
+    function getCookieValue(name) {
+        const cookies = document.cookie.split("; ");
+        for (const cookie of cookies) {
+            const [cookieName, cookieValue] = cookie.split("=");
+            if (cookieName === name) {
+                return decodeURIComponent(cookieValue);
+            }
+        }
+        return null;
+    }
+
+    const app_Name = getCookieValue("app_u_app_name");
+
+    const apiUrlCounter = `https://owlapplicationbuilder.com/api/entities/${app_Name}/blog/get_all_en?page=1&page_size=15`;
+
+    fetch(apiUrlCounter)
+        .then(response => response.json())
+        .then(data => {
+            const getdata = data.data;
+
+            // Calculate the sum of all counter values
+            const sumOfCounters = getdata.reduce((accumulator, item) => accumulator + (item.counter || 0), 0);
+
+            // Display the sum with animation
+            const totalVisitorElement = document.getElementById('total_visitor');
+            animateCount(totalVisitorElement, sumOfCounters);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    function animateCount(element, targetValue) {
+        let currentValue = 0;
+        const duration = 1000; // Animation duration in milliseconds
+        const interval = 10;   // Update interval in milliseconds
+        const steps = duration / interval;
+        const stepValue = targetValue / steps;
+
+        const animationInterval = setInterval(() => {
+            currentValue += stepValue;
+            element.textContent = Math.round(currentValue);
+
+            if (currentValue >= targetValue) {
+                element.textContent = targetValue;
+                clearInterval(animationInterval);
+            }
+        }, interval);
+    }
+    
+    
+// Ttoal comments counter
+
+    const apiUrlComments = `https://owlapplicationbuilder.com/api/entities/${app_Name}/comments/get_all_en?page=1&page_size=15&fld=_id&srt=-1&to_search={}&t=true`;
+
+ fetch(apiUrlComments)
+        .then(response => response.json())
+        .then(data => {
+            const getComments = data.data;
+
+            // Get the length of comments
+            const totalComments = getComments.length;
+
+            // Display the comment count with animation
+            const totalCommentsElement = document.getElementById('total_comments');
+            animateCount(totalCommentsElement, totalComments);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    function animateCount(element, targetValue) {
+        let currentValue = 0;
+        const duration = 1000; // Animation duration in milliseconds
+        const interval = 10;   // Update interval in milliseconds
+        const steps = duration / interval;
+        const stepValue = targetValue / steps;
+
+        const animationInterval = setInterval(() => {
+            currentValue += stepValue;
+            element.textContent = Math.round(currentValue);
+
+            if (currentValue >= targetValue) {
+                element.textContent = targetValue;
+                clearInterval(animationInterval);
+            }
+        }, interval);
+    }
+
+    
+
+// Blog Visitor list
+ const apiUrlBlogs = `https://owlapplicationbuilder.com/api/entities/${app_Name}/blog/get_all_en?page=1&page_size=15`;
+
+    fetch(apiUrlBlogs)
+        .then(response => response.json())
+        .then(data => {
+            const getBlogs = data.data;
+
+            // Get the length of blogs
+            const totalBlogs = getBlogs.length;
+
+            // Display the blog count with animation
+            const totalBlogsElement = document.getElementById('total_blog');
+            animateCount(totalBlogsElement, totalBlogs);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    function animateCount(element, targetValue) {
+        let currentValue = 0;
+        const duration = 1000; // Animation duration in milliseconds
+        const interval = 10;   // Update interval in milliseconds
+        const steps = duration / interval;
+        const stepValue = targetValue / steps;
+
+        const animationInterval = setInterval(() => {
+            currentValue += stepValue;
+            element.textContent = Math.round(currentValue);
+
+            if (currentValue >= targetValue) {
+                element.textContent = targetValue;
+                clearInterval(animationInterval);
+            }
+        }, interval);
+    }
+    
+    // Total blog Sharing counter
+    
+        const apiUrlvisitor = `https://owlapplicationbuilder.com/api/entities/${app_Name}/blog/get_all_en?page=1&page_size=15`;
+
+    fetch(apiUrlvisitor)
+        .then(response => response.json())
+        .then(data => {
+            const getdata = data.data;
+
+            // Calculate the sum of all counter values
+            const sumOfShare = getdata.reduce((accumulator, item) => accumulator + (item.share || 0), 0);
+
+            // Display the sum with animation
+            const totalShareElement = document.getElementById('blog_sharing');
+            animateCount(totalShareElement, sumOfShare);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    function animateCount(element, targetValue) {
+        let currentValue = 0;
+        const duration = 1000; // Animation duration in milliseconds
+        const interval = 10;   // Update interval in milliseconds
+        const steps = duration / interval;
+        const stepValue = targetValue / steps;
+
+        const animationInterval = setInterval(() => {
+            currentValue += stepValue;
+            element.textContent = Math.round(currentValue);
+
+            if (currentValue >= targetValue) {
+                element.textContent = targetValue;
+                clearInterval(animationInterval);
+            }
+        }, interval);
+    }
+    
+
+
+// Data grid  js
+
+  

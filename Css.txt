@@ -1,0 +1,356 @@
+/*Top bar css start */
+.button {
+    
+    background: transparent;
+    border: 1px solid #e2e2e2;
+    color: #676767;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    pointer-events: none;
+}
+
+.task_title {
+    text-transform: capitalize;
+    word-wrap: "anywhere";
+    font-size: 14px;
+    font-weight: 600;
+    color: #313332;
+    font-weight: 600;
+}
+
+.project {
+    
+    font-size: 13px;
+    color: #adaeb0;
+    margin-bottom: 1rem;
+}
+.bottom-bar {
+    padding-top: 1rem;
+}
+
+.listEl {
+  border-radius: 5px;
+  word-wrap: break-word;
+  background-color: #F5F7F8;
+  cursor: pointer;
+  border: 1px solid #E5E5E5;
+  margin: 4px 0px 15px;
+  padding: 15px 30px;
+  
+}
+
+/*Top bar css End */
+
+/*Most Viwed Blogs Start */
+.mainDataWidget{
+  box-shadow: none !important;
+}
+.section_design{
+  border-radius: 20px;
+background: #FFF;
+box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.07);
+  padding: 10px 0px;
+  overflow: scroll;
+  height: 358px !important;
+}
+.design_2{
+    padding: 10px 15px !important;
+      overflow: hidden !important;
+
+}
+.parent_1692775773484 .MuiTypography-h5 {
+  display: none;
+}
+.parent_1692775773484 .widget-title {
+  color: #000;
+  font-family: 'Poppins';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.parent_1692775773484  .widget-body {
+
+}
+.areaWidget_16923567216705 {
+  border-radius: 20px 20px 0 0;
+}
+.renderd_dw_container {
+  border: unset !important;
+  margin-right: 5px;
+}
+.layoutBody > div > .container-fluid {
+  background-color: #F4F7FE !important;
+}
+.category {
+  color: #5064A4;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.category select {
+  color: #2B3674;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 12px;
+  background: #F4F7FE;
+  padding: 8px 10px
+}
+.category select option {
+  color: #2B3674;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.blog-title {
+  color: #2B3674;
+  font-family: 'Poppins';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.blog-views {
+  color: #605BFF;
+  font-family: 'Poppins';
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.blog-list {
+  border-top: 1px solid rgba(224, 229, 242, 0.67);
+  padding: 0 15px;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+@media screen and (max-width:1400px) {
+  .parent_1692775773484 .widget-title {
+  font-size: 16px;
+}
+.category {
+  font-size: 14px;
+}
+.category select {
+  font-size: 14px;
+}
+.blog-title {
+  font-size: 15px;
+}
+.blog-views {
+  font-size: 17px;
+}
+}
+/*Most Viwed Blogs End */
+
+/*Blog Statistics Start */
+.renderd_dw_container {
+  border: unset !important;
+  margin-left: 5px;
+}
+.layoutBody > div > .container-fluid {
+  background-color: #F4F7FE !important;
+}
+.date-input-div {
+  border-radius: 12px;
+  background: #F4F7FE;
+  padding: 7px 15px;
+  font-family: 'Poppins' !important;
+}
+.date-input {
+  color: #2B3674 !important;
+  font-family: 'Poppins' !important;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    border-radius: 7px !important;
+    background: #605BFF !important;
+    color: #fff;
+}
+.daterangepicker .drp-buttons .btn {
+  background: #605BFF !important;
+  color: #fff !important;
+}
+.daterangepicker .drp-buttons .btn:hover {
+  background: #3833DC !important;
+}
+.comments-svg {
+  padding: 20px;
+  border-radius: 38px;
+  background: #FFF5DD;
+}
+.object-title {
+  color: #5064A4;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.object-count {
+  color: #2B3674;
+  font-family: 'Poppins';
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.object-growth {
+  color: #48BB78;
+  font-family: 'Poppins';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+}
+.affilate-svg {
+  padding: 20px;
+  border-radius: 38px;
+  background: #FFF0EB;
+}
+.total-visitors-svg {
+  padding: 20px;
+  border-radius: 38px;
+  background: #EBEBFF;
+}
+.blog-sharing-svg {
+  padding: 20px;
+  border-radius: 38px;
+  background: #FFEFFF !important;
+}
+.border-top-bottom-right {
+  border-top: 1px solid rgba(224, 229, 242, 0.67);
+  border-bottom: 1px solid rgba(224, 229, 242, 0.67);
+  border-right: 1px solid rgba(224, 229, 242, 0.67);
+}
+.border-top-bottom {
+  border-top: 1px solid rgba(224, 229, 242, 0.67);
+  border-bottom: 1px solid rgba(224, 229, 242, 0.67);
+}
+.border-right {
+  border-right: 1px solid rgba(224, 229, 242, 0.67);
+}
+/*Blog Statistics End */
+
+/**/
+.areaWidget_16923567216705 {
+  border-radius: 20px 20px 0 0;
+  margin-top: 15px
+}
+.css-1nitb7c{
+ background: #F7F7F7 !important;
+    border-radius: 12px !important;
+    color: #2B3674 !important; 
+}
+.css-xa1gac {
+  border-radius: 12px !important;
+}
+.css-182didf {
+  border-radius: 12px;
+  background: #F4F7FE;
+}
+.css-1hw9j7s.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26) !important;
+}
+.css-1hw9j7s {
+  background-color: #605BFF;
+  border-radius: 12px !important;
+  color: #fff !important;
+  padding: 7px 30px;
+}
+.css-1hw9j7s:hover {
+  background: #3833DC;
+}
+.css-2xhzvc {
+  border-radius: 12px !important;
+  background: #F4F7FE !important;
+  color: #5064A4 !important;
+}
+button[aria-label="Add Blog"] svg {
+    width: 17px !important;
+    height: 18px !important;
+    fill: #2B3674 !important;
+    stroke: none !important;
+    stroke-width: 0 !important;
+    border: 1px solid #2B3674 !important;
+    border-radius: 6px !important;
+    padding: 1px !important;
+}
+button[aria-label="Grid Settings"] svg {
+    width: 21px;
+    height: 21px;
+    /* stroke: #2B3674; */
+    fill: #2B3674;
+    /* stroke-width: 2px; */
+    transition: fill 0.3s ease;
+}
+button[tabindex="0"][aria-label="Refresh"] svg {
+  width: 21px !important;
+  height: 21px !important;
+  fill: #2B3674 !important;
+  transform: scaleX(-1) !important;
+}
+svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiSelect-icon.MuiSelect-iconOutlined.css-1636szt {
+    font-size: 27px !important;
+    fill: #2B3674 !important;
+}
+.css-1yhq19e {
+    font-size: 27px !important;
+    fill: #2B3674 !important;
+}
+.data_grid-col{
+ border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.07);
+    padding: 10px 0px; 
+}
+
+.css-1t75zoz{
+    border: none !important;
+
+}
+.status .published {
+    border-radius: 10px !important;
+    background: #d5f7e2 !important;
+    color: #00A023 !important;
+    font-weight: 400 !important;
+    border: none !important;
+    font-size: 16px !important;
+}
+.status .draft {
+    border: none !important;
+    border-radius: 10px !important;
+    background: rgba(255, 143, 39, 0.15) !important;
+    color: #E57309 !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+.css-1t75zoz , .css-1sqvvtg{
+  color: #2B3674 !important;
+    font-size: 16px !important;
+        font-weight: 400 !important;
+}
+
+.MuiDataGrid-row:nth-child(even) {
+ background: #FBFBFB !important; 
+}
+
+.css-1t75zoz .MuiDataGrid-cell{
+      border: none !important;
+}
+/**/
