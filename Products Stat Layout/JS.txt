@@ -1,0 +1,388 @@
+function getCookieValue(name) {
+    var cookies = document.cookie.split("; ");
+    for (var cookie of cookies) {
+        var [cookieName, cookieValue] = cookie.split("=");
+        if (cookieName === name) {
+            return decodeURIComponent(cookieValue);
+        }
+    }
+    return null;
+}
+
+var app_Name = getCookieValue("app_u_app_name");
+
+// Total Visitor on blog 
+
+var apiUrlBlogs = `https://owlapplicationbuilder.com/api/entities/${app_Name}/orders_management/get_all_en?page=1`;
+
+fetch(apiUrlBlogs)
+    .then(response => response.json())
+    .then(data => {
+        var getBlogs = data.data;
+
+        // Filter the orders based on the "status" property (assuming "status" is the property name)
+        var filteredOrders = getBlogs.filter(order => order.status === "paid" || order.status === "unpaid");
+
+        // Get the length of filtered orders
+        var totalFilteredOrders = filteredOrders.length;
+
+        console.log(totalFilteredOrders);
+
+        // Display the filtered order count with animation
+        var totalBlogsElement = document.getElementById('order_management');
+        animateCount(totalBlogsElement, totalFilteredOrders);
+    })
+    .catch(error => {
+        // Handle errors if needed
+        console.error('Error:', error);
+    });
+
+function animateCount(element, targetValue) {
+    var currentValue = 0;
+    var duration = 1000; // Animation duration in milliseconds
+    var interval = 10;   // Update interval in milliseconds
+    var steps = duration / interval;
+    var stepValue = targetValue / steps;
+
+    var animationInterval = setInterval(() => {
+        currentValue += stepValue;
+        element.textContent = Math.round(currentValue);
+
+        if (currentValue >= targetValue) {
+            element.textContent = targetValue;
+            clearInterval(animationInterval);
+        }
+    }, interval);
+}
+
+  
+  // total paid order counter
+   
+var apiUrlorderpaid = `https://owlapplicationbuilder.com/api/entities/${app_Name}/orders_management/get_all_en?page=1`;
+
+fetch(apiUrlorderpaid)
+    .then(response => response.json())
+    .then(data => {
+        var gettotalpaidorder = data.data;
+
+        // Filter the orders based on the "status" property (assuming "status" is the property name)
+        var paidOrders = gettotalpaidorder.filter(order => order.status === "paid");
+
+        // Get the length of paid orders
+        var totalPaidOrders = paidOrders.length;
+
+        console.log(totalPaidOrders);
+
+        // Display the total count of paid orders
+        var paidOrdersElement = document.getElementById('paid_orders');
+        paidOrdersElement.textContent = totalPaidOrders;
+    })
+    .catch(error => {
+        // Handle errors if needed
+        console.error('Error:', error);
+    });
+    
+function animateCount(element, targetValue) {
+    var currentValue = 0;
+    var duration = 1000; // Animation duration in milliseconds
+    var interval = 10;   // Update interval in milliseconds
+    var steps = duration / interval;
+    var stepValue = targetValue / steps;
+
+    var animationInterval = setInterval(() => {
+        currentValue += stepValue;
+        element.textContent = Math.round(currentValue);
+
+        if (currentValue >= targetValue) {
+            element.textContent = targetValue;
+            clearInterval(animationInterval);
+        }
+    }, interval);
+}
+ 
+ 
+   // total Unpaid order counter
+   
+var apiUrlunpaidOrder = `https://owlapplicationbuilder.com/api/entities/${app_Name}/orders_management/get_all_en?page=1`;
+
+fetch(apiUrlunpaidOrder)
+    .then(response => response.json())
+    .then(data => {
+        var gettotalUnpaidorder = data.data;
+
+        // Filter the orders based on the "status" property (assuming "status" is the property name)
+        var UnpaidOrders = gettotalUnpaidorder.filter(order => order.status === "unpaid");
+
+        // Get the length of paid orders
+        var totalUnPaidOrders = UnpaidOrders.length;
+
+        console.log(totalUnPaidOrders);
+
+        // Display the total count of paid orders
+        var UnpaidOrdersElement = document.getElementById('Unpaid_Orders');
+        UnpaidOrdersElement.textContent = totalUnPaidOrders;
+    })
+    .catch(error => {
+        // Handle errors if needed
+        console.error('Error:', error);
+    });
+    
+function animateCount(element, targetValue) {
+    var currentValue = 0;
+    var duration = 1000; // Animation duration in milliseconds
+    var interval = 10;   // Update interval in milliseconds
+    var steps = duration / interval;
+    var stepValue = targetValue / steps;
+
+    var animationInterval = setInterval(() => {
+        currentValue += stepValue;
+        element.textContent = Math.round(currentValue);
+
+        if (currentValue >= targetValue) {
+            element.textContent = targetValue;
+            clearInterval(animationInterval);
+        }
+    }, interval);
+}
+ 
+ 
+
+ 
+    // total Transition
+   
+var totalTranstion = `https://owlapplicationbuilder.com/api/entities/${app_Name}/transactions/get_all_en?page=1`;
+
+fetch(totalTranstion)
+    .then(response => response.json())
+    .then(data => {
+        var getDataTransition = data.data;
+
+        // Filter the orders based on the "status" property (assuming "status" is the property name)
+        var getlengthforTransition = getDataTransition.length;
+
+
+        console.log(getlengthforTransition);
+
+        // Display the total count of paid orders
+        var transitionElement = document.getElementById('getlengthforTransition');
+        transitionElement.textContent = getlengthforTransition;
+    })
+    .catch(error => {
+        // Handle errors if needed
+        console.error('Error:', error);
+    });
+    
+function animateCount(element, targetValue) {
+    var currentValue = 0;
+    var duration = 1000; // Animation duration in milliseconds
+    var interval = 10;   // Update interval in milliseconds
+    var steps = duration / interval;
+    var stepValue = targetValue / steps;
+
+    var animationInterval = setInterval(() => {
+        currentValue += stepValue;
+        element.textContent = Math.round(currentValue);
+
+        if (currentValue >= targetValue) {
+            element.textContent = targetValue;
+            clearInterval(animationInterval);
+        }
+    }, interval);
+}
+
+
+     // Total Earning
+var totalEarning = `https://owlapplicationbuilder.com/api/entities/${app_Name}/transactions/get_all_en?page=1`;
+
+fetch(totalEarning)
+    .then(response => response.json())
+    .then(data => {
+        var transactions = data.data;
+
+        // Calculate the total amount by summing up the "amount" property of each transaction
+        var totalAmount = transactions.reduce((total, transaction) => {
+            // Ensure that "transaction.amount" is a valid number before adding it to the total
+            var amount = parseFloat(transaction.amount);
+            if (!isNaN(amount)) {
+                return total + amount;
+            }
+            return total;
+        }, 0);
+
+        // Round the totalAmount to two decimal places
+        totalAmount = Math.round(totalAmount * 100) / 100;
+
+        console.log(totalAmount);
+
+        // Display the total amount with animation
+        var TotalEarningElement = document.getElementById('TotalEarning');
+        animateCount(TotalEarningElement, totalAmount);
+    })
+    .catch(error => {
+        // Handle errors if needed
+        console.error('Error:', error);
+    });
+
+function animateCount(element, targetValue) {
+    var currentValue = 0;
+    var duration = 1000; // Animation duration in milliseconds
+    var interval = 10;   // Update interval in milliseconds
+    var steps = duration / interval;
+    var stepValue = targetValue / steps;
+
+    var animationInterval = setInterval(() => {
+        currentValue += stepValue;
+        element.textContent = currentValue.toFixed(2); // Display the amount with two decimal places
+
+        if (currentValue >= targetValue) {
+            element.textContent = targetValue.toFixed(2); // Ensure the final value is displayed correctly
+            clearInterval(animationInterval);
+        }
+    }, interval);
+}
+
+
+
+ // Total Products 
+
+var totalProducts = `https://owlapplicationbuilder.com/api/entities/${app_Name}/products/get_all_en?page=1`;
+
+fetch(totalProducts)
+    .then(response => response.json())
+    .then(data => {
+        var getProducts = data.data;
+
+        // Filter the orders based on the "status" property (assuming "status" is the property name)
+        var getTotalProducts = getProducts.filter(order => order.status === "published" || order.status === "draft");
+
+        // Get the length of filtered orders
+        var totalProductslength = getTotalProducts.length;
+
+        console.log(totalProductslength);
+
+        // Display the filtered order count with animation
+        var totalProductsElement = document.getElementById('total_products');
+        animateCount(totalProductsElement, totalProductslength);
+    })
+    .catch(error => {
+        // Handle errors if needed
+        console.error('Error:', error);
+    });
+
+function animateCount(element, targetValue) {
+    var currentValue = 0;
+    var duration = 1000; // Animation duration in milliseconds
+    var interval = 10;   // Update interval in milliseconds
+    var steps = duration / interval;
+    var stepValue = targetValue / steps;
+
+    var animationInterval = setInterval(() => {
+        currentValue += stepValue;
+        element.textContent = Math.round(currentValue);
+
+        if (currentValue >= targetValue) {
+            element.textContent = targetValue;
+            clearInterval(animationInterval);
+        }
+    }, interval);
+}
+
+
+
+
+ 
+
+
+ // total published products
+   
+var apiUrlPublishedproducts = `https://owlapplicationbuilder.com/api/entities/${app_Name}/products/get_all_en?page=1`;
+
+fetch(apiUrlPublishedproducts)
+    .then(response => response.json())
+    .then(data => {
+        var getToalPublishedProducts = data.data;
+
+        // Filter the orders based on the "status" property (assuming "status" is the property name)
+        var PublishedP = getToalPublishedProducts.filter(order => order.status === "published");
+
+        // Get the length of paid orders
+        var totalPublishedProdLength = PublishedP.length;
+
+        console.log("Published",  totalPublishedProdLength);
+
+        // Display the total count of paid orders
+        var total_PublishedProductsElement = document.getElementById('total_PublishedProducts');
+        total_PublishedProductsElement.textContent = totalPublishedProdLength;
+    })
+    .catch(error => {
+        // Handle errors if needed
+        console.error('Error:', error);
+    });
+    
+function animateCount(element, targetValue) {
+    var currentValue = 0;
+    var duration = 1000; // Animation duration in milliseconds
+    var interval = 10;   // Update interval in milliseconds
+    var steps = duration / interval;
+    var stepValue = targetValue / steps;
+
+    var animationInterval = setInterval(() => {
+        currentValue += stepValue;
+        element.textContent = Math.round(currentValue);
+
+        if (currentValue >= targetValue) {
+            element.textContent = targetValue;
+            clearInterval(animationInterval);
+        }
+    }, interval);
+}
+ 
+ 
+ 
+ // total published products
+   
+var apiUrlDraftproducts = `https://owlapplicationbuilder.com/api/entities/${app_Name}/products/get_all_en?page=1`;
+
+fetch(apiUrlDraftproducts)
+    .then(response => response.json())
+    .then(data => {
+        var getToalDraftProducts = data.data;
+
+        // Filter the orders based on the "status" property (assuming "status" is the property name)
+        var DraftP = getToalDraftProducts.filter(order => order.status === "draft");
+
+        // Get the length of paid orders
+        var totalDraftProdLength = DraftP.length;
+
+        console.log("Draft",  totalDraftProdLength);
+
+        // Display the total count of paid orders
+        var total_DraftProductsElement = document.getElementById('total_DraftProducts');
+        total_DraftProductsElement.textContent = totalDraftProdLength;
+    })
+    .catch(error => {
+        // Handle errors if needed
+        console.error('Error:', error);
+    });
+    
+function animateCount(element, targetValue) {
+    var currentValue = 0;
+    var duration = 1000; // Animation duration in milliseconds
+    var interval = 10;   // Update interval in milliseconds
+    var steps = duration / interval;
+    var stepValue = targetValue / steps;
+
+    var animationInterval = setInterval(() => {
+        currentValue += stepValue;
+        element.textContent = Math.round(currentValue);
+
+        if (currentValue >= targetValue) {
+            element.textContent = targetValue;
+            clearInterval(animationInterval);
+        }
+    }, interval);
+}
+ 
+ 
+ 
+ 
