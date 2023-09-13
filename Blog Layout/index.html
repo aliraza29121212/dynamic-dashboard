@@ -14,6 +14,47 @@
     </div>
   </div>
 </div>
+<script>
+        // Function to call when the script is loaded
+        function initializeGrid() {
+            // Define the renderReactGrid function here if it's not defined in the external script
+            // function renderReactGrid(element) {
+            //     // Implementation of the function
+            // }
+            
+            // Find all div elements with the data-widget attribute
+            document
+                .querySelectorAll('div[data-widget="rg"]')
+                .forEach(function (element) {
+                    renderReactGrid(element);
+                });
+        }
+        
+        // Define the renderReactGrid function here if it's not defined in the external script
+        // function renderReactGrid(element) {
+        //     // Implementation of the function
+        // }
+        
+        
+        function getCookieValuegrid(name) {
+          var cookies = document.cookie.split("; ");
+          for (var cookie of cookies) {
+            var [cookieName, cookieValue] = cookie.split("=");
+            if (cookieName === name) {
+              return decodeURIComponent(cookieValue);
+            }
+          }
+          return null;
+        }
+
+        var app_Namegrd = getCookieValuegrid("app_u_app_name");
+         if (app_Namegrd) {
+            var element = document.querySelector("[data-app_name]");
+            if (element) {
+                element.setAttribute("data-app_name", app_Namegrd);
+            }
+        }
+    </script>
 
 <div class="row pt-0 pb-3">
   <div class="col blog-container">

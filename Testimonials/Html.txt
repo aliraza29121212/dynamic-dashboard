@@ -1,0 +1,109 @@
+<div class="mt-4">
+  <div class="row" style="
+    margin: -5px !important;
+">
+
+  <div class="col-lg-12 col-12 pl-2 pr-2 mt-lg-0 mt-4">
+    <section class="Most_viewd_blogs section_design design_2">
+      <!--Date Ramge picker library-->
+
+    
+    
+    <div class="row align-items-center py-4">
+  <div class="col-5">
+    <h3 class="widget-title">Testimonials Statistics</h3>
+  </div>
+</div>
+<div class="row mt-0">
+  <div class="col-12 result-box  border-top-bottom">
+    <div class="row">
+      <div class="col-12 d-flex align-items-center">
+        <div class="affilate-svg d-flex align-items-center justify-content-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M2.3424 29.656C4.688 32 8.4576 32 16 32C23.5424 32 27.3136 32 29.656 29.656C32 27.3152 32 23.5424 32 16C32 8.4576 32 4.6864 29.656 2.3424C27.3152 0 23.5424 0 16 0C8.4576 0 4.6864 0 2.3424 2.3424C0 4.688 0 8.4576 0 16C0 23.5424 0 27.3136 2.3424 29.656ZM12 10.8C10.9715 10.8 9.96617 11.105 9.11104 11.6764C8.2559 12.2477 7.5894 13.0599 7.19583 14.01C6.80225 14.9602 6.69927 16.0058 6.89992 17.0145C7.10056 18.0232 7.59581 18.9497 8.32304 19.677C9.05028 20.4042 9.97683 20.8994 10.9855 21.1001C11.9942 21.3007 13.0398 21.1978 13.99 20.8042C14.9401 20.4106 15.7523 19.7441 16.3236 18.889C16.895 18.0338 17.2 17.0285 17.2 16C17.2 15.6817 17.3264 15.3765 17.5515 15.1515C17.7765 14.9264 18.0817 14.8 18.4 14.8C18.7183 14.8 19.0235 14.9264 19.2485 15.1515C19.4736 15.3765 19.6 15.6817 19.6 16C19.6 17.5031 19.1543 18.9725 18.3192 20.2223C17.4841 21.4721 16.2971 22.4463 14.9084 23.0215C13.5197 23.5967 11.9916 23.7472 10.5173 23.454C9.04306 23.1607 7.68887 22.4369 6.62599 21.374C5.56311 20.3111 4.83928 18.9569 4.54603 17.4827C4.25278 16.0084 4.40329 14.4803 4.97852 13.0916C5.55374 11.7029 6.52785 10.5159 7.77767 9.68083C9.02748 8.84573 10.4969 8.4 12 8.4C12.3183 8.4 12.6235 8.52643 12.8485 8.75147C13.0736 8.97652 13.2 9.28174 13.2 9.6C13.2 9.91826 13.0736 10.2235 12.8485 10.4485C12.6235 10.6736 12.3183 10.8 12 10.8ZM25.2 16C25.2 17.3791 24.6521 18.7018 23.677 19.677C22.7018 20.6521 21.3791 21.2 20 21.2C19.6817 21.2 19.3765 21.3264 19.1515 21.5515C18.9264 21.7765 18.8 22.0817 18.8 22.4C18.8 22.7183 18.9264 23.0235 19.1515 23.2485C19.3765 23.4736 19.6817 23.6 20 23.6C21.5031 23.6 22.9725 23.1543 24.2223 22.3192C25.4721 21.4841 26.4463 20.2971 27.0215 18.9084C27.5967 17.5197 27.7472 15.9916 27.454 14.5173C27.1607 13.0431 26.4369 11.6889 25.374 10.626C24.3111 9.56311 22.9569 8.83928 21.4827 8.54603C20.0084 8.25278 18.4803 8.40329 17.0916 8.97852C15.7029 9.55374 14.5159 10.5279 13.6808 11.7777C12.8457 13.0275 12.4 14.4969 12.4 16C12.4 16.3183 12.5264 16.6235 12.7515 16.8485C12.9765 17.0736 13.2817 17.2 13.6 17.2C13.9183 17.2 14.2235 17.0736 14.4485 16.8485C14.6736 16.6235 14.8 16.3183 14.8 16C14.8 14.6209 15.3479 13.2982 16.323 12.323C17.2982 11.3479 18.6209 10.8 20 10.8C21.3791 10.8 22.7018 11.3479 23.677 12.323C24.6521 13.2982 25.2 14.6209 25.2 16Z" fill="#FF8F6B"/>
+</svg>
+        </div>
+        <div class="d-flex flex-column align-items-start justify-content-center ml-2">
+          <p class="object-title">Total Testimonials</p>
+          <p class="object-count" id="total_testimonials">0</p>
+        </div>
+      </div>
+      
+  </div>
+  </div>
+</div>
+
+
+      
+    </section>
+  </div>
+</div>
+<div class="row px-3">
+  <div class="col-12 mt-4 data_grid-col">
+  
+ 
+  
+  <div
+      data-widget="rg"
+      data-app_name="default"
+      data-object_name="testimonials"
+      data-trash="false"
+      data-system_widget="grid"
+      data-non_edit_fields=""
+      data-hidden_fields=""
+      data-include_fields=""
+      data-show_fields="title"
+      data-exclude_fields=""
+      data-create_record="true"
+      data-view_record="true"
+      data-edit_record="true"
+      data-delete_record="true"
+      data-trash_record="true"
+      data-public_view="true"
+      data-private_view="true"
+      data-grid_settings="true"
+      data-bulk_action="true"
+      data-en_to_search="true"
+      data-query_builder=""
+      data-acl_permission="true"
+      data-init_in_builder="true"
+      data-react_builder="true"
+    ></div>
+    
+ 
+ <script src="https://files.owlapplicationbuilder.com/assets/data_grid/grid.js?t=1882023" onload="initializeGrid()"></script>
+    
+    <script>
+            function initializeGrid() {
+            // Find all div elements with the data-widget attribute
+            document
+                .querySelectorAll('div[data-widget="rg"]')
+                .forEach(function (element) {
+                    renderReactGrid(element);
+                });
+        }
+        
+        
+        function getCookieValuegrid(name) {
+          var cookies = document.cookie.split("; ");
+          for (var cookie of cookies) {
+            var [cookieName, cookieValue] = cookie.split("=");
+            if (cookieName === name) {
+              return decodeURIComponent(cookieValue);
+            }
+          }
+          return null;
+        }
+
+        var app_Namegrd = getCookieValuegrid("app_u_app_name");
+         if (app_Namegrd) {
+            var element = document.querySelector("[data-app_name]");
+            if (element) {
+                element.setAttribute("data-app_name", app_Namegrd);
+            }
+        }
+    </script>
+  
+     </div> 
+</div>
+</div>

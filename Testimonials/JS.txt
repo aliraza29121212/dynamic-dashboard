@@ -1,0 +1,58 @@
+ 
+// Total Visitor on blog 
+
+
+    function getCookieValue(name) {
+        var cookies = document.cookie.split("; ");
+        for (var cookie of cookies) {
+            var [cookieName, cookieValue] = cookie.split("=");
+            if (cookieName === name) {
+                return decodeURIComponent(cookieValue);
+            }
+        }
+        return null;
+    }
+
+    var app_Name = getCookieValue("app_u_app_name");
+
+
+// Blog Visitor list
+ var apiUrlBlogs = `https://owlapplicationbuilder.com/api/entities/${app_Name}/testimonials/get_all_en?page=1&page_size=15`;
+
+    fetch(apiUrlBlogs)
+        .then(response => response.json())
+        .then(data => {
+            var getBlogs = data.data;
+
+            // Get the length of blogs
+            var totalBlogs = getBlogs.length;
+
+            // Display the blog count with animation
+            var totalBlogsElement = document.getElementById('total_testimonials');
+            animateCount(totalBlogsElement, totalBlogs);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    function animateCount(element, targetValue) {
+        let currentValue = 0;
+        var duration = 1000; // Animation duration in milliseconds
+        var interval = 10;   // Update interval in milliseconds
+        var steps = duration / interval;
+        var stepValue = targetValue / steps;
+
+        var animationInterval = setInterval(() => {
+            currentValue += stepValue;
+            element.textContent = Math.round(currentValue);
+
+            if (currentValue >= targetValue) {
+                element.textContent = targetValue;
+                clearInterval(animationInterval);
+            }
+        }, interval);
+    }
+    
+
+
+  
